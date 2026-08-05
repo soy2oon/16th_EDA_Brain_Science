@@ -43,7 +43,7 @@ from dacc_entropy_correlation import (
     source_id_to_condition_name,
 )
 
-OUT_CSV = Path(r"D:\OIID") / "dacc_ai_error_correlation_results.csv"
+OUT_CSV = Path(__file__).resolve().parent / "dacc_ai_error_correlation_results.csv"
 MIN_SEED_COUNT = 1  # dacc_entropy_correlation.py와 동일한 신뢰도 필터 (기본 1 = 필터 없음)
 
 
