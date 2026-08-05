@@ -12,7 +12,6 @@
 - [An fMRI Dataset on Occluded Image Interpretation for Human Amodal Completion Research (Li et al., 2025, *Scientific Data*)](https://doi.org/10.1038/s41597-025-05414-w) : 참가자 64명이 항공기(ISAR) 2기종 이미지를 10%(기준)·70%·90% 세 단계의 검은 사각형 가림(occlusion) 조건에서 관찰할 때의 fMRI 반응을 담은 공개 데이터셋. 자극 수는 2기종 × 3가림수준 × 50장 = 총 300장.
 
 ### 발표자료 및 코드
-- **EDA 발표자료** : [EDA 발표 때 사용한 PPT입니다.](#) *(링크를 채워주세요)*
 - **EDA 최종 코드** : [GitHub Repository](https://github.com/soy2oon/16th_EDA_Brain_Science)
   - `01_stimuli` : 실험 자극(가림 조건별 항공기 이미지) 관련 코드
   - `roi_occipital`, `roi_extraction.py`, `roi_extraction_dacc.py` : 후두엽(occipital) 및 dACC ROI 추출
