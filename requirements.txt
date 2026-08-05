@@ -1,0 +1,9 @@
+torch>=2.2
+torchvision>=0.17
+cornet @ git+https://github.com/dicarlolab/CORnet.git
+numpy
+pandas
+pillow
+scipy
+scikit-learn
+matplotlib
