@@ -65,3 +65,126 @@
 - 가림에 특화된 **compositional(부품 기반) 모델**이나 Stylized-ImageNet과 같은 텍스처 편향 교정 학습을 적용한 모델을 동일한 RSA·엔트로피 파이프라인으로 재평가.
 - 인간의 dACC처럼 불확실성을 능동적으로 감시·개입하는 모듈을 비전 모델에 추가한 뒤, 가림 조건에서의 표상 붕괴가 완화되는지 검증.
 - 항공기 외 다른 카테고리(얼굴, 동물, 사물 등)의 가림 fMRI 데이터로 확장하여 결과의 일반화 가능성을 검증.
+
+
+
+
+
+
+
+
+
+
+## 대주제 (제목)
+#### 참여자 : 팀장, 팀원 이름
+#### EDA 프로젝트 자료 소개
+> * Dataset # 사용한 데이터셋 설명과 url, 발표자료와 최종코드 링크 
+>   * [사용 데이터 리스트업..](url link) : 설명
+>   * [예시) 서울시 년도별 평균 대기오염도 정보](https://data.seoul.go.kr/dataList/OA-2216/S/1/datasetView.do) : 연도별 평균 대기오염물질 농도 정보를 담은 데이터
+> * [EDA 발표자료](EDA_##조_발표자료.pdf) : EDA 발표 때 사용한 ppt입니다.
+> * [EDA 최종 코드](EDA_##조_코드.ipynb) : EDA 발표와 관련하여 사용된 코드입니다.
+
+<br>
+
+
+
+## EDA 프로젝트 요약
+
+1. 프로젝트 주제 및 목적
+        - 주제 및 목적에 대해 간단히 설명 
+
+2. 데이터 전처리
+
+        - 데이터 별 전처리 과정을 간단히 설명, 관련 코드가 있다면 [링크](깃허브 내 파일 주소)를 걸어주세요
+            
+ 
+3. 분석 방법 및 결과
+    
+        - 분석 방법 및 결과를 설명, 관련 코드가 있다면 [링크](깃허브 내 파일 주소)를 걸어주세요
+		    
+4. 결론
+
+        - 최종 결론을 적어주세요
+    
+5. 아쉬운 점
+    
+        - 한계점을 적어주세요
+
+6. 추가로 하면 좋을 분석 방법
+    
+        - 생각해보신 발전 방향이 있을 경우 적어주세요
+
+<br>
+
+
+
+ ## 각 팀원의 역할
+ 
+|이름|활동 내용| 
+|:---:|:---|
+|배소윤| - (팀장) 전체 일정 관리 및 회의 진행.<br> - fMRI 전처리| 
+|김정민| - RQ 1, 2 시각화<br> - 발표자료 작성| 
+|박성하| - 방법론 분석 <br> - 한계점 탐구|
+|조규홍| - 모델 통합 분석<br> - 발표| 
+|이준희| - ResNet 분석 <br> - 선행연구 조사|
+<br/>
+
+
+
+## tree (가능하다면, github에서 tree 명령어를 통해 전체 파일 트리를 보여주세요)
+```bash
+16th_EDA_Brain_Science/
+├── .datalad/config
+├── .gitattributes
+├── .gitignore
+├── CHANGES
+├── README
+├── README.md
+├── dataset_description.json
+├── requirements.txt
+│
+├── 01_stimuli/
+│   └── preflight_stimulus_check.py
+│
+├── 02_fmri_preprocessing/            ← 이번에 새로 push한 부분
+│   ├── glm_6condition.py
+│   ├── glm_stimfile_condition.py
+│   ├── roi_extraction.py
+│   ├── roi_extraction_dacc.py
+│   ├── dacc_ai_error_correlation.py
+│   ├── dacc_ai_error_correlation_results.csv
+│   ├── dacc_entropy_correlation.py
+│   ├── dacc_entropy_correlation_results.csv
+│   ├── dacc_entropy_correlation_results_min_seed3.csv
+│   ├── dacc_occlusion_correlation.py
+│   ├── dacc_occlusion_correlation_results.csv
+│   └── roi_occipital/
+│       ├── sub-01/
+│       │   ├── betas_occipital.csv
+│       │   └── roi_meta.json
+│       └── sub-02 ~ sub-43/  (같은 구조로 26명분)
+│
+├── 03_model_features/
+│   ├── apply_patches.py
+│   ├── final_cornet_experiment.py (+_patched)
+│   ├── final_resnet_experiment.py (+_patched)
+│   ├── final_vit_experiment.py (+_patched)
+│   └── cornet_rdm/
+│       ├── config.py
+│       ├── extract_features.py
+│       └── prepare_manifest.py
+│
+├── 04_rq1_brain_model_rsa/
+│   └── make_perimage_rsa.py
+│
+├── 05_rq2_representation/
+│   ├── analyze_corrected_entropy.py
+│   ├── make_figures_auto.py
+│   └── plot_corrected_sensitivity.py
+│
+└── 06_prototype/
+    ├── config.py
+    ├── cornet_s_rsa.py
+    ├── prep_bboxes.py
+    └── report_figures.py
+``` 
