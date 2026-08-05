@@ -1,0 +1,20 @@
+# 데이터 · 결과물은 저장소에 포함하지 않는다
+data/
+results/
+features/
+figures/
+models/
+checkpoints/
+*.npy
+*.nii.gz
+*.zip
+
+# 파이썬
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# macOS
+.DS_Store
