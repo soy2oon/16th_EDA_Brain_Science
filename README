@@ -1,0 +1,15 @@
+**Summary**
+
+In everyday environments, partially occluded objects are more common than fully visible ones. Despite their visual incompleteness, the human brain can reconstruct these objects to form coherent perceptual representations, a phenomenon referred to as amodal completion. However, current computer vision systems still struggle to accurately infer the hidden portions of occluded objects. While the neural mechanisms underlying amodal completion have been partially explored, existing findings often lack consistency, likely due to limited sample sizes and varied stimulus materials. To address these gaps, we introduce a novel fMRI dataset,the Occluded Image Interpretation Dataset (OIID), which captures human perception during image interpretation under different levels of occlusion. This dataset includes  fMRI responses and behavioral data from 65 participants. The OIID enables researchers to identify the brain regions involved in processing occluded images and examines individual differences in functional responses. Our work contributes to a deeper understanding of how the human brain interprets incomplete visual information and offers valuable insights for advancing both theoretical research and related practical applications in amodal completion fields.
+
+**Data record**
+
+Stimulus. The folder labeled as the "stimuli" contains the set of 300 stimulus images utilized throughout the experiment . This set comprises 150 images of aircraft A and 150 images of aircraft B, with varying levels of occlusion at 10%, 70%, and 90%. The complete stimulus generation pipeline (original images, masks, and processing code) is fully available in /derivatives/stimuli_dataset to support future research applications .
+
+Raw MRI data. Each participant's directory contains 2 subfolders: “sub-<subID>/ses-anat” and “sub-<subID>/ses-01” . Within the “ses-anat” subfolder, there is a single folder named “anat”. The “ses-01” subfolder includes subfolder titled “func”. The scan details for the functional scan are stored in a file named “sub-<subID>_ses-01_scans.tsv”. The task events were recorded in files named “sub-<subID>/ses-01/func/sub-<subID>_ses-01_task-image_run-<runID>_events.tsv” for each individual task run.
+
+Functional data from preprocessing. The preprocessed functional data was stored in the "derivatives/preprocessed_data/" folder. This folder contains four subfolders: "space-MNI", "space-T1w", "space-fsLR", and "space-fsnative", which respectively contain functional imaging data registered to different standard spaces.
+
+Structural data from preprocessing. The outcomes of cortical surface reconstruction were stored in folders named "recon-all-FreeSurfer/sub-<subID>" .
+
+Validation. The technical validation code was stored in the directory labeled "derivatives/validation/code". The outcomes of technical validation were saved in the folder named "derivatives/validation/results" .

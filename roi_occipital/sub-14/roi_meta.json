@@ -1,0 +1,23 @@
+{
+  "subject": "sub-14",
+  "conditions": [
+    "Aircraft1_10",
+    "Aircraft1_75",
+    "Aircraft1_90",
+    "Aircraft2_10",
+    "Aircraft2_75",
+    "Aircraft2_90"
+  ],
+  "n_voxels": 27220,
+  "occipital_labels": [
+    "Intracalcarine Cortex",
+    "Cuneal Cortex",
+    "Lingual Gyrus",
+    "Occipital Fusiform Gyrus",
+    "Supracalcarine Cortex",
+    "Occipital Pole",
+    "Lateral Occipital Cortex, superior division",
+    "Lateral Occipital Cortex, inferior division"
+  ],
+  "note": "행=조건(CONDITION_NAMES 순서), 열=후두엽 복셀. occipital_mask.nii.gz로 niivue에서 ROI 위치 확인 가능."
+}

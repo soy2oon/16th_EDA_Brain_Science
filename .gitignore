@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+roi_occipital.zip
+roi_occipital_stimfile.zip
+glm_stimfile_betas/
