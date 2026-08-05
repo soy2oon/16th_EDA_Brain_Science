@@ -31,7 +31,7 @@ from scipy.stats import pearsonr, spearmanr, ttest_1samp
 
 from dacc_entropy_correlation import CONDITION_NAME_RE, DACC_ROOT, fisher_group_stats
 
-OUT_CSV = Path(r"D:\OIID") / "dacc_occlusion_correlation_results.csv"
+OUT_CSV = Path(__file__).resolve().parent / "dacc_occlusion_correlation_results.csv"
 
 
 def condition_name_to_occlusion_percent(name: str) -> int | None:

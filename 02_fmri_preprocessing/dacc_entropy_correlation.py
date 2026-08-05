@@ -45,7 +45,10 @@ import pandas as pd
 from scipy.stats import pearsonr, spearmanr, ttest_1samp
 
 # ==== 여기만 수정하세요 ====
-ROOT = Path(r"D:\OIID")
+# roi_dacc_stimfile/, aircraft_occlusion_rerun_20260725/ 는 용량 때문에 git에
+# 올리지 않으므로, 리포지토리 루트(이 스크립트의 상위 폴더)와 같은 위치에
+# 로컬로 받아둔다고 가정한다. 다른 위치에 있다면 ROOT만 직접 바꾸면 됨.
+ROOT = Path(__file__).resolve().parent.parent
 DACC_ROOT = ROOT / "roi_dacc_stimfile"
 ENTROPY_CSV = (
     ROOT
@@ -55,7 +58,8 @@ ENTROPY_CSV = (
     / "rerun_analysis"
     / "corrected_entropy_trials.csv"
 )
-OUT_CSV = ROOT / "dacc_entropy_correlation_results.csv"  # main()에서 MIN_SEED_COUNT>1이면 파일명에 접미사 추가
+# 결과 csv는 이 리포에서 이 스크립트와 같은 폴더(02_fmri_preprocessing/)에 커밋되어 있음
+OUT_CSV = Path(__file__).resolve().parent / "dacc_entropy_correlation_results.csv"  # main()에서 MIN_SEED_COUNT>1이면 파일명에 접미사 추가
 
 MODELS = ["cornet", "resnet", "vit"]
 STIM_CONDITION = "color"  # fMRI 자극과 매칭되는 쪽 (brightness_matched 대조군 제외)

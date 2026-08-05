@@ -26,14 +26,15 @@ os.environ.setdefault("MKL_NUM_THREADS", "1")
 # C: 드라이브 여유공간이 거의 없어서(확인됨, 1GB대), joblib(loky)가 병렬 워커
 # 사이에 큰 배열(run_glm의 AR1 bin 결과 등)을 주고받을 때 쓰는 memmap 임시파일이
 # 기본값인 C:의 시스템 TEMP로 가다가 디스크가 가득 차서 GLM fitting 도중
-# "No space left on device"로 죽는 문제가 있었음. 여유공간이 넉넉한 D: 드라이브로
+# "No space left on device"로 죽는 문제가 있었음. 여유공간이 넉넉한 저장소 루트로
 # TEMP/TMP를 돌려서 방지. numpy/nilearn/joblib을 import하기 "전에" 설정해야 함.
-os.makedirs(r"D:\OIID\glm_6condition_work\tmp", exist_ok=True)
-os.environ["TEMP"] = r"D:\OIID\glm_6condition_work\tmp"
-os.environ["TMP"] = r"D:\OIID\glm_6condition_work\tmp"
-os.environ["JOBLIB_TEMP_FOLDER"] = r"D:\OIID\glm_6condition_work\tmp"
-
 from pathlib import Path
+
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+os.makedirs(_REPO_ROOT / "glm_6condition_work" / "tmp", exist_ok=True)
+os.environ["TEMP"] = str(_REPO_ROOT / "glm_6condition_work" / "tmp")
+os.environ["TMP"] = str(_REPO_ROOT / "glm_6condition_work" / "tmp")
+os.environ["JOBLIB_TEMP_FOLDER"] = str(_REPO_ROOT / "glm_6condition_work" / "tmp")
 import time
 import pandas as pd
 import numpy as np
@@ -46,7 +47,10 @@ except ImportError:
     tqdm = lambda x, **kwargs: x  # tqdm 없으면 그냥 진행바 없이 진행
 
 # ==== 여기만 수정하세요 ====
-BIDS_ROOT = Path(r"D:\OIID")
+# 원본 BIDS 데이터셋(sub-XX/, derivatives/ 등)은 용량 때문에 git에 올리지
+# 않으므로, 리포지토리 루트(이 스크립트의 상위 폴더)와 같은 위치에 로컬로
+# 받아둔다고 가정한다. 다른 위치에 있다면 이 줄만 직접 바꾸면 됨.
+BIDS_ROOT = _REPO_ROOT
 PREPROC_ROOT = BIDS_ROOT / "derivatives" / "pre-processed_data" / "space-MNI"
 TR = 2.0
 # desc-preproc BOLD를 직접 확인한 결과 스무딩이 적용 안 된 상태로 확인됨
