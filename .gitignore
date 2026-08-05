@@ -8,6 +8,7 @@ checkpoints/
 *.npy
 *.nii.gz
 *.zip
+glm_stimfile_betas/
 
 # 파이썬
 __pycache__/
